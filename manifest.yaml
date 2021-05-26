@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: assign3
+  name: assignment3
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: assign3
+      app: assignment3
   template:
     metadata:
       labels:
-        app: assign3
+        app: assignment3
     spec:
       nodeSelector:
         "beta.kubernetes.io/os": linux
       containers:
-      - name: assign3
-        image: assign3acr.azurecr.io/spring-mvc-example:v1
+      - name: assignment3
+        image: myACRRakib.azurecr.io/spring-mvc-example:v1
         ports:
         - name: http
           containerPort: 80
@@ -37,7 +37,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: assign3
+  name: assignment3
 spec:
   type: LoadBalancer
   ports:
@@ -46,4 +46,4 @@ spec:
     targetPort: 8080
     protocol: TCP
   selector:
-    app: assign3
+    app: assignment3
